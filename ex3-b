@@ -1,0 +1,50 @@
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class Stack:
+    def __init__(self):
+        self.top=None
+    def is_empty(self):
+        return self.top is None
+    def push(self,data):
+        new_node=Node(data)
+        new_node.next=self.top
+        self.top=new_node
+    def pop(self):
+        if self.is_empty():
+            print("Stack is Empty")
+        else:
+            poped_data=self.top.data
+            self.top=self.top.next
+            return poped_data
+    def peek(self):
+        if self.is_empty():
+            print("stack is Empty")
+        else:
+            peek_data=self.top.data
+            return peek_data
+bk=Stack()
+bk.push("Harry potter")
+bk.push("cindrella")
+bk.push("The dark sky")
+bk.push("Life is a Journey")
+while True:
+    c=int(input("Enter the choice(1-4)"))
+    if c==1:
+        a=input("Enter the book title to push:")
+        bk.push(a)
+        print("Book title is successfully pushed")
+    elif c==2:
+        poped=bk.pop()
+        if poped is not None:
+            print("Book title that is poped:",poped)
+    elif c==3:
+        peek=bk.peek()
+        if peek is not None:
+            print("Book title that is in the top",peek)
+    elif c==4:
+        print("The Program is Ended")
+        break;
+    else:
+        print("Invalid Input")
