@@ -1,0 +1,47 @@
+class Stack:
+    def __init__(self):
+        self.stack = []
+
+    def push(self, item):
+        self.stack.append(item)
+        print(item, "pushed to stack")
+
+    def pop(self):
+        if self.is_empty():
+            return "Stack underflow"
+        return self.stack.pop()
+
+    def is_empty(self):
+        return len(self.stack) == 0
+
+    def peek(self):
+        if self.is_empty():
+            return "Stack is empty"
+        return self.stack[-1]
+
+    def display(self):
+        print("Stack elements:", self.stack)
+
+
+b = Stack()
+
+b.push("Maths")
+b.push("English")
+b.push("Tamil")
+
+choice = int(input("Enter the choice (1-3): "))
+
+if choice == 1:
+    a = input("Enter a book title to push: ")
+    b.push(a)
+
+elif choice == 2:
+    removed_element = b.pop()
+    print("Popped:", removed_element)
+
+elif choice == 3:
+    print("The top book is:", b.peek())
+    b.display()
+
+else:
+    print("Invalid choice")
