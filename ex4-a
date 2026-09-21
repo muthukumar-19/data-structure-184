@@ -1,0 +1,97 @@
+queue=[None]*5
+
+front=-1
+
+rear=-1
+
+def enqueue(x):
+
+global front,rear
+
+if rear ==4:
+
+print("Queue Overflow")
+
+else:
+
+if front == -1:
+
+front = 0
+
+rear +=1
+
+queue[rear]=x
+
+print("Inserted:",x)
+
+def dequeue():
+
+global front,rear
+
+if front == -1 or front>rear:
+
+print("Queue underflow")
+
+else:
+
+print("Deleted:",queue[front])
+
+front +=1
+
+def display():
+
+if front == -1 or front>rear:
+
+print("Queue is empty")
+
+else:
+
+print("Queue:",queue[front:rear+1])
+
+print("-----IN PARKING----")
+
+enqueue("Ducatti")
+
+enqueue("BMW")
+
+enqueue("Audi R8")
+
+enqueue("Porsche")
+
+enqueue("Lamborghini")
+
+display()
+
+print("-----TRYING ADDING ANOTHERONE--INTO PARKING----")
+
+enqueue("Supra")
+
+dequeue()
+
+print("-----AFTER GOING OUT--IN PARKING----")
+
+display()
+
+-----IN PARKING----
+
+('Inserted:', 'Ducatti')
+
+('Inserted:', 'BMW')
+
+('Inserted:', 'Audi R8')
+
+('Inserted:', 'Porsche')
+
+('Inserted:', 'Lamborghini')
+
+('Queue:', ['Ducatti', 'BMW', 'Audi R8', 'Porsche', 'Lamborghini'])
+
+-----TRYING ADDING ANOTHERONE--INTO PARKING----
+
+Queue Overflow
+
+('Deleted:', 'Ducatti')
+
+-----AFTER GOING OUT--IN PARKING----
+
+('Queue:', ['BMW', 'Audi R8', 'Porsche', 'Lamborghini'])
